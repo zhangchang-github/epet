@@ -38,7 +38,7 @@
     <HomeImg :otherImg="otherImgs[6]"/>
 
     <!--8宫格图-->
-    <HomeActive v-for="(adver, index) in adverCollection" :adverList="adver"/>
+    <HomeActive v-for="(adver, index) in adverCollection" :adverList="adver" :key="index"/>
 
     <!--最惨奖-->
     <HomeImg :otherImg="otherImgs[7]"/>
@@ -62,16 +62,13 @@
 </template>
 
 <script>
-  import Swiper from 'swiper'
-  import 'swiper/dist/css/swiper.min.css'
-
   import HomeLunbo from '../../components/HomeLunbo/HomeLunbo.vue'
   import HomeImg from '../../components/HomeImg/HomeImg.vue'
   import HomeDaily from '../../components/HomeDaily/HomeDaily.vue'
   import HomeActive from '../../components/HomeActive/HomeActive.vue'
   import HomeIcon from '../../components/HomeIcon/HomeIcon.vue'
 
-  import {mapState} from 'vuex'
+  import {mapState, mapGetters} from 'vuex'
 
   export default{
 
@@ -85,15 +82,7 @@
 
     computed:{
       ...mapState(['home']),
-      lunboImgs(){
-        return this.home.homeImgList.filter(item => item.index === '3160' || item.index === '3171').map(item => item.value)
-      },
-      otherImgs(){
-        return this.home.homeImgList.filter(item => item.index !== '3160' && item.index !== '3171').map(item => item.value[0])
-      },
-      adverCollection(){
-        return this.home.homeAdvertList.slice(1, 6)
-      }
+      ...mapGetters(['lunboImgs','otherImgs','adverCollection'])
     },
     props:{
       isShow:Boolean
@@ -102,21 +91,7 @@
     mounted(){
       this.$store.dispatch('getHomeIconList')
       this.$store.dispatch('getHomeImgList')
-      this.$store.dispatch('getHomeAdvertList', ()=>{
-        this.$nextTick(()=>{
-          var swiper_lunbo2 = new Swiper(this.$refs.lunbo2, {
-            centeredSlides: true,
-            autoplay: {
-              delay: 2500,
-              disableOnInteraction: false,
-            },
-            pagination: {
-              el: '.swiper-pagination',
-              clickable: true,
-            },
-          })
-        })
-      })
+      this.$store.dispatch('getHomeAdvertList')
     }
   }
 </script>
@@ -126,25 +101,5 @@
     padding-top 141px
     &.reset
       padding-top 86px
-
-    .div13
-      margin-top -2px
-      .divboximg
-        display flex
-        .divimg
-          img
-            margin-top -2px
-
-    .div14
-      .divboximg
-        display flex
-        img
-          margin-top -2px
-    .div15
-      .div-boximg
-        float left
-        a
-          display block
-          margin-top -2px
 
 </style>

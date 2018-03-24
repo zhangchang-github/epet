@@ -1,7 +1,7 @@
 <template>
-  <div class="div2" v-if="otherImg">
+  <div class="otherImg" v-if="otherImg">
     <a href="javascript:;">
-      <img style="width: 375px;" :src="otherImg.image">
+      <img :src="otherImg.image">
     </a>
   </div>
 </template>
@@ -15,6 +15,8 @@
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus">
-  .div2
+  .otherImg
     margin-top -2px
+    img
+      width 100%
 </style>

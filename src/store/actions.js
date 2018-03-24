@@ -35,7 +35,7 @@ export default {
       callback && callback()
     }
   },
-  // 首页导航栏
+  // 首页图片集合
   async getHomeImgList({commit}, callback){
     const result = await reqHomeImgList()
     if(result.code === 0){
@@ -43,7 +43,7 @@ export default {
       callback && callback()
     }
   },
-  // 首页导航栏
+  // 首页图标集合
   async getHomeIconList({commit}, callback){
     const result = await reqHomeIconList()
     if(result.code === 0){
@@ -51,7 +51,7 @@ export default {
       callback && callback()
     }
   },
-  // 首页导航栏
+  // 首页疯抢图
   async getHomeDaily({commit}, callback){
     const result = await reqHomeDaily()
     if(result.code === 0){
@@ -59,7 +59,7 @@ export default {
       callback && callback()
     }
   },
-  // 首页导航栏
+  // 首页广告图
   async getHomeAdvertList({commit}, callback){
     const result = await reqHomeAdvertList()
     if(result.code === 0){
@@ -76,7 +76,7 @@ export default {
       callback && callback()
     }
   },
-  // 分类页
+  // 分类页内容
   async getGroupContents({commit}, callback){
     const result = await reqGroupContents()
     if(result.code === 0){

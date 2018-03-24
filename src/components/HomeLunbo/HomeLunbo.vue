@@ -1,12 +1,12 @@
 <template>
-  <div class="div1" v-if="lunboImgs">
+  <div class="lunboImgs" v-if="lunboImgs">
     <div class="banner_item">
       <div class="swiper-container" ref="dog_banner">
         <div class="swiper-wrapper">
           <!--狗狗轮播图-->
           <div class="swiper-slide" v-for="(item, index) in lunboImgs" :key="index">
             <a href="javascript:;">
-              <img style="width: 375px" :src="item.image">
+              <img :src="item.image">
             </a>
           </div>
         </div>
@@ -46,15 +46,13 @@
           }
         })
       }
-    },
-
-    mounted(){
-
     }
   }
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus">
-  .div1
+  .lunboImgs
     overflow hidden
+    img
+      width 100%
 </style>

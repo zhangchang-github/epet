@@ -16,8 +16,8 @@ Mock.mock('/wap/homeImgList', {code:0, data:imgList})
 const iconList = home.datas.filter(item => item.type_name === '栏目菜单二')
 Mock.mock('/wap/homeIconList', {code:0, data:iconList[0].menus})
 // 惊喜模板 - 返回结果为数组
-const daily = home.datas.filter(item => item.type_name === '天天惊喜模板')
-Mock.mock('/wap/homeDaily', {code:0, data:daily[0]})
+const dailyList = home.datas.filter(item => item.type_name === '天天惊喜模板')
+Mock.mock('/wap/homeDaily', {code:0, data:dailyList[0]})
 // 广告模板
 const advertList = home.datas.filter(item => item.type_name === '通用广告模板').map(item => {
   return [item.content_images[0], item.content_images[1]]
